@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Md. Ramjan Ali — Quantity Surveyor</title>
+<meta name="description" content="Quantity Surveyor with 11 years in large-scale infrastructure, including Dhaka MRT Line-6.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F4EE;
+    --paper-line:#E4E0D4;
+    --ink:#12293F;
+    --ink-soft:#3C5570;
+    --grid:#B9C2CC;
+    --accent:#C74E2B;
+    --text:#1F1D1B;
+    --text-soft:#5A5750;
+    --sheet:#FFFFFF;
+    --max:1040px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    background-image:
+      linear-gradient(var(--paper-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px);
+    background-size: 28px 28px;
+    color:var(--text);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+  a{color:inherit;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+
+  ::selection{background:var(--accent); color:#fff;}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+
+  /* ===== Title block header ===== */
+  header.titleblock{
+    border-bottom:2px solid var(--ink);
+    padding:22px 0;
+    position:sticky; top:0; z-index:50;
+    background:rgba(246,244,238,0.92);
+    backdrop-filter:blur(6px);
+  }
+  .titleblock .wrap{display:flex; justify-content:space-between; align-items:center; gap:20px;}
+  .tb-mark{display:flex; align-items:center; gap:12px;}
+  .tb-mark svg{width:38px; height:38px; flex-shrink:0;}
+  .tb-mark .name{font-family:'Space Grotesk'; font-weight:600; font-size:1.05rem; letter-spacing:0.01em;}
+  .tb-mark .role{font-family:'IBM Plex Mono'; font-size:0.68rem; color:var(--ink-soft); letter-spacing:0.08em; text-transform:uppercase;}
+  nav{display:flex; gap:26px; font-family:'IBM Plex Mono'; font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase;}
+  nav a{text-decoration:none; color:var(--ink-soft); border-bottom:1px solid transparent; padding-bottom:3px; transition:color .15s, border-color .15s;}
+  nav a:hover{color:var(--accent); border-color:var(--accent);}
+  @media (max-width:720px){ nav{display:none;} }
+
+  /* ===== Hero: drawing sheet with dimension header ===== */
+  .hero{padding:70px 0 40px;}
+  .dwg-no{font-family:'IBM Plex Mono'; font-size:0.72rem; color:var(--ink-soft); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:18px; display:flex; gap:10px; align-items:center;}
+  .dwg-no::before{content:''; width:34px; height:1px; background:var(--grid);}
+  h1.headline{
+    font-family:'Space Grotesk'; font-weight:700;
+    font-size:clamp(2.3rem, 6vw, 4rem);
+    line-height:1.05;
+    letter-spacing:-0.01em;
+    max-width:820px;
+  }
+  h1.headline .accent{color:var(--accent);}
+  .subline{font-size:1.08rem; color:var(--text-soft); max-width:600px; margin-top:20px;}
+
+  /* dimension strip of key metrics */
+  .dim-strip{
+    margin-top:52px;
+    border-top:1px solid var(--ink);
+    border-bottom:1px solid var(--ink);
+    display:grid; grid-template-columns:repeat(4,1fr);
+  }
+  .dim-item{
+    padding:18px 20px;
+    border-left:1px solid var(--grid);
+    position:relative;
+  }
+  .dim-item:first-child{border-left:none;}
+  .dim-item .num{font-family:'IBM Plex Mono'; font-weight:600; font-size:1.6rem; color:var(--ink);}
+  .dim-item .lab{font-family:'IBM Plex Mono'; font-size:0.65rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-soft); margin-top:4px;}
+  @media (max-width:720px){ .dim-strip{grid-template-columns:repeat(2,1fr);} .dim-item:nth-child(3){border-left:none;} }
+
+  /* ===== section framing ===== */
+  section{padding:64px 0;}
+  .sec-head{display:flex; align-items:baseline; gap:16px; margin-bottom:34px;}
+  .sec-tag{font-family:'IBM Plex Mono'; font-size:0.72rem; color:var(--accent); letter-spacing:0.08em; text-transform:uppercase; white-space:nowrap;}
+  .sec-title{font-family:'Space Grotesk'; font-weight:600; font-size:1.7rem;}
+  .sec-rule{flex:1; height:1px; background:var(--grid); position:relative; top:-2px;}
+
+  /* ===== Summary ===== */
+  .summary p{max-width:760px; font-size:1.02rem; color:var(--text);}
+  .summary p + p{margin-top:14px;}
+
+  /* competencies grid */
+  .comp-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--grid); border:1px solid var(--grid); margin-top:28px;}
+  .comp-cell{background:var(--sheet); padding:16px 18px; font-family:'IBM Plex Mono'; font-size:0.82rem; display:flex; align-items:center; gap:10px;}
+  .comp-cell::before{content:''; width:6px; height:6px; background:var(--accent); flex-shrink:0;}
+  @media (max-width:720px){ .comp-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:480px){ .comp-grid{grid-template-columns:1fr;} }
+
+  /* ===== Career elevation (timeline) ===== */
+  .elevation{position:relative; margin-top:10px; padding-left:52px;}
+  .elevation::before{
+    content:''; position:absolute; left:18px; top:6px; bottom:6px; width:1px; background:var(--ink);
+  }
+  .erole{position:relative; padding:0 0 46px 0;}
+  .erole:last-child{padding-bottom:0;}
+  .erole::before{
+    content:''; position:absolute; left:-52px; top:4px; width:11px; height:11px; border:2px solid var(--ink); background:var(--paper); border-radius:50%;
+  }
+  .erole::after{
+    content:''; position:absolute; left:-42px; top:9px; width:24px; height:1px; background:var(--grid);
+  }
+  .erole .years{font-family:'IBM Plex Mono'; font-size:0.72rem; color:var(--accent); letter-spacing:0.05em; margin-bottom:6px;}
+  .erole .rtitle{font-family:'Space Grotesk'; font-weight:600; font-size:1.25rem;}
+  .erole .rmeta{font-size:0.9rem; color:var(--text-soft); margin-top:2px; margin-bottom:14px;}
+  .erole .rmeta .co{color:var(--ink-soft); font-weight:500;}
+  .erole ul{list-style:none; max-width:720px;}
+  .erole ul li{position:relative; padding-left:18px; font-size:0.94rem; color:var(--text); margin-bottom:8px;}
+  .erole ul li::before{content:'—'; position:absolute; left:0; color:var(--grid);}
+  .erole .toggle{
+    margin-top:6px; font-family:'IBM Plex Mono'; font-size:0.7rem; letter-spacing:0.06em; text-transform:uppercase;
+    color:var(--ink-soft); background:none; border:1px solid var(--grid); padding:7px 14px; cursor:pointer; transition:all .15s;
+  }
+  .erole .toggle:hover{border-color:var(--accent); color:var(--accent);}
+  .erole .full{display:none; margin-top:6px;}
+  .erole.open .full{display:block;}
+  .erole.open .toggle{display:none;}
+
+  /* ===== Project BOQ table ===== */
+  .boq-wrap{overflow-x:auto; margin-top:28px; border:1px solid var(--ink);}
+  table.boq{width:100%; border-collapse:collapse; min-width:720px; background:var(--sheet);}
+  table.boq thead th{
+    font-family:'IBM Plex Mono'; font-size:0.68rem; letter-spacing:0.06em; text-transform:uppercase;
+    text-align:left; padding:12px 16px; background:var(--ink); color:var(--paper); font-weight:500;
+  }
+  table.boq tbody td{padding:16px; font-size:0.88rem; border-top:1px solid var(--paper-line); vertical-align:top;}
+  table.boq tbody tr:hover{background:#FBFAF6;}
+  table.boq td.item{font-family:'IBM Plex Mono'; color:var(--text-soft); width:30px;}
+  table.boq td.pname{font-weight:600; font-family:'Space Grotesk'; max-width:220px;}
+  table.boq td.val{font-family:'IBM Plex Mono'; color:var(--accent); font-weight:600; white-space:nowrap;}
+  table.boq td.dur{font-family:'IBM Plex Mono'; font-size:0.82rem; color:var(--text-soft); white-space:nowrap;}
+  table.boq td.role{font-family:'IBM Plex Mono'; font-size:0.78rem; color:var(--ink-soft);}
+
+  /* ===== Certifications ===== */
+  .cert-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(230px,1fr)); gap:14px; margin-top:28px;}
+  .cert{
+    border:1px solid var(--grid); background:var(--sheet); padding:18px; position:relative;
+  }
+  .cert::before{
+    content:'STAMP'; position:absolute; top:14px; right:14px; font-family:'IBM Plex Mono'; font-size:0.55rem;
+    color:var(--grid); letter-spacing:0.1em; border:1px solid var(--grid); padding:2px 6px; transform:rotate(6deg);
+  }
+  .cert .cname{font-family:'Space Grotesk'; font-weight:600; font-size:0.98rem; padding-right:50px; margin-bottom:8px;}
+  .cert .cby{font-size:0.8rem; color:var(--text-soft);}
+  .cert .cdate{font-family:'IBM Plex Mono'; font-size:0.72rem; color:var(--ink-soft); margin-top:10px;}
+
+  /* ===== Education ===== */
+  .edu-grid{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--grid); border:1px solid var(--grid); margin-top:28px;}
+  .edu-cell{background:var(--sheet); padding:22px;}
+  .edu-cell .deg{font-family:'Space Grotesk'; font-weight:600; font-size:1.05rem;}
+  .edu-cell .inst{font-size:0.88rem; color:var(--text-soft); margin-top:4px;}
+  .edu-cell .yrs{font-family:'IBM Plex Mono'; font-size:0.75rem; color:var(--ink-soft); margin-top:10px;}
+  .edu-cell .gpa{font-family:'IBM Plex Mono'; font-size:0.75rem; color:var(--accent); margin-top:2px;}
+  @media (max-width:640px){ .edu-grid{grid-template-columns:1fr;} }
+
+  /* ===== Footer / contact ===== */
+  footer{border-top:2px solid var(--ink); padding:56px 0 40px; margin-top:20px;}
+  .contact-title{font-family:'Space Grotesk'; font-weight:700; font-size:clamp(1.8rem,4vw,2.6rem); max-width:600px;}
+  .contact-links{display:flex; flex-wrap:wrap; gap:26px; margin-top:28px; font-family:'IBM Plex Mono'; font-size:0.85rem;}
+  .contact-links a{text-decoration:none; border-bottom:1px solid var(--grid); padding-bottom:3px; transition:border-color .15s, color .15s;}
+  .contact-links a:hover{color:var(--accent); border-color:var(--accent);}
+  .foot-bottom{margin-top:44px; padding-top:20px; border-top:1px solid var(--paper-line); font-family:'IBM Plex Mono'; font-size:0.7rem; color:var(--text-soft); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;}
+
+  ::-webkit-scrollbar{width:10px;}
+  ::-webkit-scrollbar-track{background:var(--paper);}
+  ::-webkit-scrollbar-thumb{background:var(--grid);}
+</style>
+</head>
+<body>
+
+<header class="titleblock">
+  <div class="wrap">
+    <div class="tb-mark">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="1" width="38" height="38" stroke="#12293F" stroke-width="1.5"/>
+        <path d="M9 29V11L20 25L31 11V29" stroke="#C74E2B" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
+      </svg>
+      <div>
+        <div class="name">Md. Ramjan Ali</div>
+        <div class="role">Quantity Surveyor</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="dwg-no">Drg No. QS—2026 · Scale NTS · Rev. 03</div>
+      <h1 class="headline">Certifying <span class="accent">BDT 34.7B</span> in payments across Dhaka's metro rail programme.</h1>
+      <p class="subline">B.Sc. in Civil Engineering, IEB Member No. M-41792. Eleven years on large-scale infrastructure, the last six specialised in quantity surveying, contract administration and FIDIC-based commercial management — currently on Dhaka MRT Line-6.</p>
+
+      <div class="dim-strip">
+        <div class="dim-item"><div class="num mono">11</div><div class="lab">Years in construction</div></div>
+        <div class="dim-item"><div class="num mono">42B</div><div class="lab">BDT — MRT Line-6 contract</div></div>
+        <div class="dim-item"><div class="num mono">300+</div><div class="lab">Variation claims managed</div></div>
+        <div class="dim-item"><div class="num mono">34.7B</div><div class="lab">BDT payments certified</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="summary">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-tag">01 — Scope</span><span class="sec-title">Core competencies</span><span class="sec-rule"></span></div>
+      <div class="comp-grid">
+        <div class="comp-cell">Quantity Surveying</div>
+        <div class="comp-cell">Contract Management</div>
+        <div class="comp-cell">BOQ &amp; Rate Analysis</div>
+        <div class="comp-cell">Cost Estimation &amp; Control</div>
+        <div class="comp-cell">Post-Contract Administration</div>
+        <div class="comp-cell">Interim Payment Certificates</div>
+        <div class="comp-cell">Variation Order Management</div>
+        <div class="comp-cell">Price Adjustment Calculation</div>
+        <div class="comp-cell">FIDIC &amp; Contract Compliance</div>
+        <div class="comp-cell">AutoCAD · Primavera P6</div>
+        <div class="comp-cell">Plan Swift · ACONEX</div>
+        <div class="comp-cell">Stakeholder Negotiation</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-tag">02 — Elevation</span><span class="sec-title">Career progression</span><span class="sec-rule"></span></div>
+
+      <div class="elevation">
+
+        <div class="erole">
+          <div class="years mono">JAN 2020 — PRESENT</div>
+          <div class="rtitle">Quantity Surveyor</div>
+          <div class="rmeta"><span class="co">Development Design Consultants Ltd.</span> · Dhaka MRT Line-6, CP03 &amp; CP04 · Client: DMTCL · BDT 42B</div>
+          <ul>
+            <li>Prepared detailed BOQs and quantity take-offs for concrete, reinforcement steel, earthworks and finishing works.</li>
+            <li>Evaluated contractor payment applications and processed interim/final certificates for compliance.</li>
+          </ul>
+          <button class="toggle" aria-expanded="false">+ Show full scope</button>
+          <div class="full">
+            <ul>
+              <li>Reviewed project drawings and specifications across civil, structural and architectural disciplines against contract requirements.</li>
+              <li>Identified and evaluated variations and claims, ensuring compliance with contract conditions.</li>
+              <li>Developed cost estimates for labour, materials and equipment; conducted rate analysis for non-standard items.</li>
+              <li>Evaluated subcontractor quotations and prepared comparison sheets.</li>
+              <li>Monitored and controlled project costs, tracking financial variations and issuing periodic cost reports.</li>
+              <li>Identified risk and proposed value engineering options for cost optimisation.</li>
+              <li>Coordinated with engineering, procurement and planning teams; supported bid reviews, negotiations and handovers.</li>
+              <li>Ensured adherence to FIDIC guidelines, preambles and local regulations across all cost and contract activities.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="erole">
+          <div class="years mono">MAR 2018 — DEC 2019</div>
+          <div class="rtitle">Site Inspector (Civil)</div>
+          <div class="rmeta"><span class="co">Development Design Consultants Ltd.</span> · Dhaka MRT Line-6, CP03 &amp; CP04 · Client: DMTCL · BDT 42B</div>
+          <ul>
+            <li>Supervised pile, pile cap, pier and viaduct segment erection, including post-tensioning work.</li>
+            <li>Oversaw balanced cantilever bridge erection using precast segmental box girders.</li>
+          </ul>
+          <button class="toggle" aria-expanded="false">+ Show full scope</button>
+          <div class="full">
+            <ul>
+              <li>Supervised metro station construction — concourse, platform level, architectural works and steel roof erection per method statement.</li>
+              <li>Conducted quality audits, reviewed method statements, and ensured compliance with specifications and safety standards.</li>
+              <li>Ran safety patrols and toolbox talks to uphold site safety standards.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="erole">
+          <div class="years mono">AUG 2017 — MAR 2018</div>
+          <div class="rtitle">Bridge Engineer</div>
+          <div class="rmeta"><span class="co">Wahid Construction Ltd.</span> · Jatrabari Intersection, Dhaka–Khulna Highway (N-8) · Client: RHD &amp; HQ 24 ECB</div>
+          <ul>
+            <li>Directed sub-soil investigations and pile load tests; supervised bored pile, pile cap and culvert works.</li>
+            <li>Led construction teams and coordinated with client, subcontractors and suppliers on-site.</li>
+          </ul>
+          <button class="toggle" aria-expanded="false">+ Show full scope</button>
+          <div class="full">
+            <ul>
+              <li>Standard Penetration Test sub-soil investigation to 55m depth, on land and river.</li>
+              <li>Static Axial Compression Load Test (ASTM D 1143), pile dynamic analysis, and pile integrity testing.</li>
+              <li>Supervised 1.2m and 1.8m diameter cast-in-situ friction pile construction to 55m depth via hydraulic rotary rig.</li>
+              <li>Oversaw rebar fabrication, formwork and concreting for pier head, pier and pile cap.</li>
+              <li>Prepared project planning, progress reports and work schedules; reviewed shop drawings and method statements.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="erole">
+          <div class="years mono">JAN 2015 — JUL 2017</div>
+          <div class="rtitle">Site Engineer (Civil)</div>
+          <div class="rmeta"><span class="co">Toma Construction &amp; Co. Ltd.</span> · Moghbazar–Mouchak Flyover · Client: LGED · BDT 1.3B</div>
+          <ul>
+            <li>Supervised pre-cast I-girder, deck slab, waffle slab and abutment construction.</li>
+            <li>Directed post-tensioning operations and I-girder erection to design alignment.</li>
+          </ul>
+          <button class="toggle" aria-expanded="false">+ Show full scope</button>
+          <div class="full">
+            <ul>
+              <li>Prepared daily progress reports and work schedules for real-time project tracking.</li>
+              <li>Conducted duct pipe grouting and recess filling works per design elongation and force specifications.</li>
+              <li>Maintained site documentation, inspection reports and field measurement books.</li>
+              <li>Resolved on-site technical issues while holding quality control standards.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-tag">03 — Bill of Quantities</span><span class="sec-title">Project experience</span><span class="sec-rule"></span></div>
+      <div class="boq-wrap">
+        <table class="boq">
+          <thead>
+            <tr><th>Item</th><th>Project</th><th>Client</th><th>Contract value</th><th>Duration</th><th>Role</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="item mono">01</td>
+              <td class="pname">Dhaka MRT Line-6 Development Project (CP03 &amp; CP04)</td>
+              <td>DMTCL</td>
+              <td class="val">৳42B</td>
+              <td class="dur">Jan 2020 – Present</td>
+              <td class="role">Quantity Surveyor</td>
+            </tr>
+            <tr>
+              <td class="item mono">02</td>
+              <td class="pname">Dhaka MRT Line-6 Development Project (CP03 &amp; CP04)</td>
+              <td>DMTCL</td>
+              <td class="val">৳42B</td>
+              <td class="dur">Mar 2018 – Dec 2019</td>
+              <td class="role">Site Inspector (Civil)</td>
+            </tr>
+            <tr>
+              <td class="item mono">03</td>
+              <td class="pname">Jatrabari Intersection — Dhaka–Khulna Hwy (N-8) to 4-Lane</td>
+              <td>RHD &amp; HQ 24 ECB</td>
+              <td class="val">—</td>
+              <td class="dur">Aug 2017 – Mar 2018</td>
+              <td class="role">Bridge Engineer</td>
+            </tr>
+            <tr>
+              <td class="item mono">04</td>
+              <td class="pname">Moghbazar–Mouchak Flyover</td>
+              <td>LGED</td>
+              <td class="val">৳1.3B</td>
+              <td class="dur">Jan 2015 – Jul 2017</td>
+              <td class="role">Site Engineer (Civil)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-tag">04 — Approvals</span><span class="sec-title">Certifications</span><span class="sec-rule"></span></div>
+      <div class="cert-grid">
+        <div class="cert"><div class="cname">Construction Project Management Fundamentals</div><div class="cby">Planning Engineer FZE</div><div class="cdate">08 Feb 2026 · 17.5 hrs</div></div>
+        <div class="cert"><div class="cname">Fundamentals of Integrity Management for the Global Infrastructure Industry</div><div class="cby">FIDIC Academy</div><div class="cdate">07 Feb 2026 · 1 hr</div></div>
+        <div class="cert"><div class="cname">Construction Quality and Completions</div><div class="cby">ConstructIQ</div><div class="cdate">09 Feb 2026 · 3 hrs</div></div>
+        <div class="cert"><div class="cname">Oracle Primavera P6 — Project Setup &amp; Basic Management</div><div class="cby">Packt / Coursera</div><div class="cdate">26 Aug 2025 · 35 hrs</div></div>
+        <div class="cert"><div class="cname">Legal Aspects of Contracts</div><div class="cby">School of Sheriff</div><div class="cdate">01 Sep 2025 · 2 hrs</div></div>
+        <div class="cert"><div class="cname">Quality Management System</div><div class="cby">Bangladesh Engineers &amp; Architects Worldwide</div><div class="cdate">16 Aug 2025 · 1 hr</div></div>
+        <div class="cert"><div class="cname">Contract Management (MOOC)</div><div class="cby">Procurementlearning.org / World Bank</div><div class="cdate">18 Sep 2024 · 7 hrs</div></div>
+        <div class="cert"><div class="cname">Construction Cost Estimating and Cost Control</div><div class="cby">Columbia University / Coursera</div><div class="cdate">26 Jan 2024 · 22 hrs</div></div>
+        <div class="cert"><div class="cname">Basic Delay Analysis</div><div class="cby">Smart PM Training</div><div class="cdate">09 Jul 2023 · 5 hrs</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-tag">05 — Foundation</span><span class="sec-title">Education</span><span class="sec-rule"></span></div>
+      <div class="edu-grid">
+        <div class="edu-cell">
+          <div class="deg">B.Sc. in Civil Engineering</div>
+          <div class="inst">Dhaka University of Engineering &amp; Technology</div>
+          <div class="yrs mono">2010 – 2015</div>
+          <div class="gpa mono">CGPA 3.28 / 4.00</div>
+        </div>
+        <div class="edu-cell">
+          <div class="deg">Diploma in Civil Engineering</div>
+          <div class="inst">Dhaka Polytechnic Institute</div>
+          <div class="yrs mono">2006 – 2010</div>
+          <div class="gpa mono">CGPA 3.47 / 4.00</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="contact-title">Reviewing a bid, a claim, or a payment certificate — let's talk.</div>
+    <div class="contact-links">
+      <a href="mailto:mdramjanduet@gmail.com">mdramjanduet@gmail.com</a>
+      <a href="tel:+8801915958148">+880 1915 958148</a>
+      <a href="https://www.linkedin.com/in/ramjan-ali-duet" target="_blank" rel="noopener">linkedin.com/in/ramjan-ali-duet</a>
+      <span>Mirpur, Dhaka, Bangladesh</span>
+    </div>
+    <div class="foot-bottom">
+      <span>Md. Ramjan Ali — IEB Membership No. M-41792</span>
+      <span>Drg No. QS—2026 · Rev. 03</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.erole .toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const role = btn.closest('.erole');
+      const open = role.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+    });
+  });
+</script>
+
+</body>
+</html>
